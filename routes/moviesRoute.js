@@ -28,4 +28,13 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/', async (req, res) => {
+    try {
+        const allMovies = await Movies.findAll();
+        res.status(200).send({movies: allMovies});
+    } catch (err) {
+        res.status(422).send({error: err});
+    }
+});
+
 export default router;
