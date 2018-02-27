@@ -2,8 +2,7 @@ import Sequelize from 'sequelize';
 import sequelize from '../config/contecion-db';
 
 const Comments = sequelize.define('comments', {
-   content: Sequelize.TEXT,
-   author: Sequelize.STRING
+   text: Sequelize.TEXT,
 });
 
 export default Comments;

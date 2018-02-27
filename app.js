@@ -6,8 +6,15 @@ import logger from 'morgan';
 import './config/contecion-db'
 // import favicon from 'serve-favicon';
 
+import Movies from './models/Movies';
+import Comments from './models/Comments';
+
+Comments.sync();
+Movies.sync();
+
 import index from './routes/index';
 import moviesRoute from './routes/moviesRoute';
+import commentsRoute from './routes/commentsRoute';
 
 
 const app = express();
@@ -25,6 +32,7 @@ app.use(cookieParser());
 
 app.use('/', index);
 app.use('/movies', moviesRoute);
+app.use('/comments', commentsRoute);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

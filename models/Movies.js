@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import sequelize from '../config/contecion-db';
+import Comments from './Comments';
 
 const Movies = sequelize.define('movies', {
     title: Sequelize.STRING,
@@ -26,5 +27,8 @@ const Movies = sequelize.define('movies', {
     production: Sequelize.STRING,
     website: Sequelize.STRING
 });
+
+Movies.hasMany(Comments);
+Movies.belongsTo(Comments, {as: 'MovieComments', constraints: false});
 
 export default Movies;

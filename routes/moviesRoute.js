@@ -3,7 +3,6 @@ import {fetchMovies} from '../utils/fetachMovies';
 import Movies from '../models/Movies';
 
 const router = express.Router();
-Movies.sync();
 
 router.post('/', async (req, res) => {
     const title = req.body.title;
