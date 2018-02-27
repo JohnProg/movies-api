@@ -12,10 +12,8 @@ import Comments from './models/Comments';
 Comments.sync();
 Movies.sync();
 
-import index from './routes/index';
 import moviesRoute from './routes/moviesRoute';
 import commentsRoute from './routes/commentsRoute';
-
 
 const app = express();
 const debug = Debug('movies-api:app');
@@ -30,7 +28,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(cookieParser());
 
-app.use('/', index);
 app.use('/movies', moviesRoute);
 app.use('/comments', commentsRoute);
 
