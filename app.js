@@ -7,6 +7,7 @@ import './config/contecion-db'
 // import favicon from 'serve-favicon';
 
 import index from './routes/index';
+import moviesRoute from './routes/moviesRoute';
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 app.use('/', index);
+app.use('/movies', moviesRoute);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
