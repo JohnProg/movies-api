@@ -28,9 +28,16 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
+    const year = req.query.year;
+
     try {
-        const allMovies = await Movies.findAll();
-        res.status(200).send({movies: allMovies});
+        if (year) {
+            const allMoviesByYear = await Movies.findAll({where: {year}});
+            res.status(200).send({movies: allMoviesByYear});
+        } else {
+            const allMovies = await Movies.findAll();
+            res.status(200).send({movies: allMovies});
+        }
     } catch (err) {
         res.status(422).send({error: err});
     }
