@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
+import './config';
 
-const sequelize = new Sequelize('postgres://nzxhbkth:Pl0P5gVmRnaI5iCkqBmrEOhL2nCWZKwW@horton.elephantsql.com:5432/nzxhbkth');
+const sequelize = new Sequelize(process.env.POSTGREDB);
 
 sequelize
     .authenticate()
