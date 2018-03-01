@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 
         const allDetailsAboutMovie = await Movies.create(detailsMovie);
 
-        res.status(200).send(allDetailsAboutMovie);
+        res.status(200).send({movie: allDetailsAboutMovie});
     } catch (err) {
         res.status(400).send(err);
     }
